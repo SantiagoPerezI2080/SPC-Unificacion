@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'coreapi',
     'autenticacion',
-    'task',
     'registro_usuarios',
     'rest_framework',
     'rest_framework.authtoken',
