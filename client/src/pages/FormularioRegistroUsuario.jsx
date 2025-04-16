@@ -8,6 +8,7 @@ import {
 } from "../api/registroUsuarios.api";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const PROGRAMAS_PERMITIDOS = [
   "Coordinador Facultad Ciencias Sociales y Humanidades",
@@ -44,11 +45,11 @@ export function FormularioRegistroUsuarios() {
     }
 
     // Si estamos actualizando y el password es vacío (o solo espacios), lo eliminamos.
-  if (params.id && (!data.password || data.password.trim() === "")) {
-    delete data.password;
-  }
-  
-  console.log("Payload final:", data);
+    if (params.id && (!data.password || data.password.trim() === "")) {
+      delete data.password;
+    }
+
+    console.log("Payload final:", data);
 
     if (params.id) {
       await updateUsuarios(params.id, data);
@@ -169,6 +170,7 @@ export function FormularioRegistroUsuarios() {
         <button className="bg-[#1572E8] text-white p-3 rounded-lg block w-full mt-3">
           Guardar
         </button>
+        
       </form>
 
       {params.id && (
@@ -192,8 +194,18 @@ export function FormularioRegistroUsuarios() {
           >
             Eliminar
           </button>
+          
         </div>
+        
+        
       )}
+      <div className="flex justify-center mt-10">
+          <Link to="/gestion-usuarios">
+            <button className="bg-[#1572E8] px-3 py-2 rounded-lg text-white hover:bg-[#0f5fc7] transition-all duration-300">
+              Volver
+            </button>
+          </Link>
+        </div>
     </div>
   );
 }

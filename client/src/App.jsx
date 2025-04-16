@@ -11,6 +11,7 @@ import { Login } from "./pages/Login";
 import { Dashboard } from "./pages/Dashboard";
 import { ListaUsuarios } from "./pages/ListaUsuarios";
 import { FormularioRegistroUsuarios } from "./pages/FormularioRegistroUsuario";
+import {GestionUsuarios} from "./components/GestionUsuarios"
 
 const isAuthenticated = () => !!Cookies.get("token");
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/lista-usuarios" element={<ListaUsuarios />} />
           <Route path="/formulario-registro-usuarios" element={<FormularioRegistroUsuarios />} />
           <Route path="/lista-usuarios/:id" element={<FormularioRegistroUsuarios />} />
+          <Route path="/gestion-usuarios" element={<GestionUsuarios />} />
         </Route>
 
         {/* Redirección fallback */}
